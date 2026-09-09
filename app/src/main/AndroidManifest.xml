@@ -1,5 +1,5 @@
 
-      <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+  <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
         android:allowBackup="true"
         android:label="TrikeGo Sariaya"
@@ -14,7 +14,7 @@
         </activity>
     </application>
 </manifest>
-  
+
 
 
 
