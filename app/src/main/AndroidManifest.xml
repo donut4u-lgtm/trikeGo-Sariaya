@@ -1,43 +1,23 @@
-package com.trikego.app
 
-import android.os.Bundle
-import android.widget.Button
-import android.widget.LinearLayout
-import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.trikego.app">
 
-class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    <application
+        android:allowBackup="true"
+        android:label="TrikeGo Sariaya"
+        android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
 
-        val layout = LinearLayout(this).apply {
-            orientation = LinearLayout.VERTICAL
-            setPadding(50, 50, 50, 50)
-        }
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
-        val title = TextView(this).apply {
-            text = "TrikeGo Sariaya"
-            textSize = 24f
-            setPadding(0, 0, 0, 40)
-        }
-        layout.addView(title)
+    </application>
 
-        val btnPassenger = Button(this).apply {
-            text = "Passenger Mode"
-        }
-        layout.addView(btnPassenger)
-
-        val btnDriver = Button(this).apply {
-            text = "Driver Mode"
-        }
-        layout.addView(btnDriver)
-
-        val btnAdmin = Button(this).apply {
-            text = "Admin Sign-In"
-        }
-        layout.addView(btnAdmin)
-
-        setContentView(layout)
-    }
-}
+</manifest>
 
