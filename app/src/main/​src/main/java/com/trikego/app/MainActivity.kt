@@ -1,4 +1,5 @@
 
+
 package com.trikego.app
 
 import android.graphics.Color
@@ -36,7 +37,7 @@ class MainActivity : AppCompatActivity() {
         rootLayout.addView(title)
 
         val passengerBox = TextView(this).apply {
-            text = "TAP HERE: PASSENGER MODE"
+            text = "PASSENGER MODE"
             textSize = 18f
             setTextColor(Color.WHITE)
             setBackgroundColor(Color.parseColor("#2E7D32"))
@@ -45,7 +46,7 @@ class MainActivity : AppCompatActivity() {
             isClickable = true
             isFocusable = true
             setOnClickListener {
-                Toast.makeText(this@MainActivity, "Passenger Mode Triggered Successfully!", Toast.LENGTH_LONG).show()
+                Toast.makeText(this@MainActivity, "Passenger Mode Clicked!", Toast.LENGTH_SHORT).show()
             }
         }
         rootLayout.addView(passengerBox, LinearLayout.LayoutParams(
@@ -54,7 +55,7 @@ class MainActivity : AppCompatActivity() {
         ).apply { setMargins(0, 0, 0, 40) })
 
         val driverBox = TextView(this).apply {
-            text = "TAP HERE: DRIVER MODE"
+            text = "DRIVER MODE"
             textSize = 18f
             setTextColor(Color.WHITE)
             setBackgroundColor(Color.parseColor("#1565C0"))
@@ -63,7 +64,7 @@ class MainActivity : AppCompatActivity() {
             isClickable = true
             isFocusable = true
             setOnClickListener {
-                Toast.makeText(this@MainActivity, "Driver Mode Triggered Successfully!", Toast.LENGTH_LONG).show()
+                Toast.makeText(this@MainActivity, "Driver Mode Clicked!", Toast.LENGTH_SHORT).show()
             }
         }
         rootLayout.addView(driverBox, LinearLayout.LayoutParams(
