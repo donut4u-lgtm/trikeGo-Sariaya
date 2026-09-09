@@ -1,20 +1,22 @@
 
 package com.trikego.app
 
-import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        showMainScreen()
+    }
 
+    private fun showMainScreen() {
         val rootLayout = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
             layoutParams = ViewGroup.LayoutParams(
@@ -36,34 +38,57 @@ class MainActivity : AppCompatActivity() {
         val btnPassenger = Button(this).apply {
             text = "PASSENGER MODE"
             setOnClickListener {
-                Toast.makeText(this@MainActivity, "Opening Passenger Mode...", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this@MainActivity, PassengerActivity::class.java)
-                startActivity(intent)
+                // Direct UI replacement test
+                val passengerLayout = LinearLayout(this@MainActivity).apply {
+                    orientation = LinearLayout.VERTICAL
+                    layoutParams = ViewGroup.LayoutParams(
+                        ViewGroup.LayoutParams.MATCH_PARENT,
+                        ViewGroup.LayoutParams.MATCH_PARENT
+                    )
+                    setPadding(50, 80, 50, 50)
+                    setBackgroundColor(Color.WHITE)
+                }
+
+                val pTitle = TextView(this@MainActivity).apply {
+                    text = "Passenger Booking"
+                    textSize = 24f
+                    setTextColor(Color.BLACK)
+                    setPadding(0, 0, 0, 40)
+                }
+                passengerLayout.addView(pTitle)
+
+                val inputPickup = EditText(this@MainActivity).apply {
+                    hint = "Enter Pickup Location"
+                    setTextColor(Color.BLACK)
+                    setHintTextColor(Color.GRAY)
+                }
+                passengerLayout.addView(inputPickup, LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT
+                ).apply { setMargins(0, 0, 0, 20) })
+
+                val inputDestination = EditText(this@MainActivity).apply {
+                    hint = "Enter Destination"
+                    setTextColor(Color.BLACK)
+                    setHintTextColor(Color.GRAY)
+                }
+                passengerLayout.addView(inputDestination, LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT
+                ).apply { setMargins(0, 0, 0, 40) })
+
+                val btnBook = Button(this@MainActivity).apply {
+                    text = "FIND TRICYCLE"
+                }
+                passengerLayout.addView(btnBook, LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT
+                ))
+
+                setContentView(passengerLayout)
             }
         }
         rootLayout.addView(btnPassenger, LinearLayout.LayoutParams(
-            LinearLayout.LayoutParams.MATCH_PARENT,
-            LinearLayout.LayoutParams.WRAP_CONTENT
-        ).apply { setMargins(0, 20, 0, 20) })
-
-        val btnDriver = Button(this).apply {
-            text = "DRIVER MODE"
-            setOnClickListener {
-                Toast.makeText(this@MainActivity, "Driver Mode coming soon", Toast.LENGTH_SHORT).show()
-            }
-        }
-        rootLayout.addView(btnDriver, LinearLayout.LayoutParams(
-            LinearLayout.LayoutParams.MATCH_PARENT,
-            LinearLayout.LayoutParams.WRAP_CONTENT
-        ).apply { setMargins(0, 20, 0, 20) })
-
-        val btnAdmin = Button(this).apply {
-            text = "ADMIN SIGN-IN"
-            setOnClickListener {
-                Toast.makeText(this@MainActivity, "Admin Sign-In coming soon", Toast.LENGTH_SHORT).show()
-            }
-        }
-        rootLayout.addView(btnAdmin, LinearLayout.LayoutParams(
             LinearLayout.LayoutParams.MATCH_PARENT,
             LinearLayout.LayoutParams.WRAP_CONTENT
         ).apply { setMargins(0, 20, 0, 20) })
