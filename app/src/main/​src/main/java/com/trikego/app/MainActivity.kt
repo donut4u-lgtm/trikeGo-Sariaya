@@ -1,8 +1,10 @@
 
 package com.trikego.app
 
+import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
-import android.view.Gravity
+import android.view.ViewGroup
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -12,44 +14,57 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val layout = LinearLayout(this).apply {
+        val rootLayout = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
-            setPadding(60, 60, 60, 60)
-            gravity = Gravity.CENTER_HORIZONTAL
+            layoutParams = ViewGroup.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.MATCH_PARENT
+            )
+            setPadding(50, 100, 50, 50)
+            setBackgroundColor(Color.WHITE)
         }
 
         val title = TextView(this).apply {
             text = "TrikeGo Sariaya"
-            textSize = 26f
-            setPadding(0, 40, 0, 80)
-            gravity = Gravity.CENTER
+            textSize = 28f
+            setTextColor(Color.BLACK)
+            setPadding(0, 0, 0, 60)
         }
-        layout.addView(title)
+        rootLayout.addView(title)
 
         val btnPassenger = Button(this).apply {
-            text = "Passenger Mode"
-            setPadding(20, 30, 20, 30)
+            text = "PASSENGER MODE"
+            setOnClickListener {
+                // TODO: Launch Passenger Activity workflow
+            }
         }
-        val params = LinearLayout.LayoutParams(
+        rootLayout.addView(btnPassenger, LinearLayout.LayoutParams(
             LinearLayout.LayoutParams.MATCH_PARENT,
             LinearLayout.LayoutParams.WRAP_CONTENT
-        ).apply {
-            setMargins(0, 20, 0, 20)
-        }
-        layout.addView(btnPassenger, params)
+        ).apply { setMargins(0, 20, 0, 20) })
 
         val btnDriver = Button(this).apply {
-            text = "Driver Mode"
-            setPadding(20, 30, 20, 30)
+            text = "DRIVER MODE"
+            setOnClickListener {
+                // TODO: Launch Driver Activity workflow
+            }
         }
-        layout.addView(btnDriver, params)
+        rootLayout.addView(btnDriver, LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.MATCH_PARENT,
+            LinearLayout.LayoutParams.WRAP_CONTENT
+        ).apply { setMargins(0, 20, 0, 20) })
 
         val btnAdmin = Button(this).apply {
-            text = "Admin Sign-In"
-            setPadding(20, 30, 20, 30)
+            text = "ADMIN SIGN-IN"
+            setOnClickListener {
+                // TODO: Launch Admin Login workflow
+            }
         }
-        layout.addView(btnAdmin, params)
+        rootLayout.addView(btnAdmin, LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.MATCH_PARENT,
+            LinearLayout.LayoutParams.WRAP_CONTENT
+        ).apply { setMargins(0, 20, 0, 20) })
 
-        setContentView(layout)
+        setContentView(rootLayout)
     }
 }
