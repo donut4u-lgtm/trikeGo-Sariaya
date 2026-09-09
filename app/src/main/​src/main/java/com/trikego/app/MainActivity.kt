@@ -1,26 +1,21 @@
 
 package com.trikego.app
 
+import android.app.Activity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
+import android.widget.TextView
+import android.graphics.Color
+import android.view.Gravity
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-        findViewById<Button>(R.id.btnPassenger).setOnClickListener {
-            Toast.makeText(this, "Passenger Mode Clicked!", Toast.LENGTH_SHORT).show()
+        val textView = TextView(this).apply {
+            text = "TrikeGo Sariaya - Online"
+            textSize = 24f
+            setTextColor(Color.BLACK)
+            gravity = Gravity.CENTER
         }
-
-        findViewById<Button>(R.id.btnDriver).setOnClickListener {
-            Toast.makeText(this, "Driver Mode Clicked!", Toast.LENGTH_SHORT).show()
-        }
-
-        findViewById<Button>(R.id.btnAdmin).setOnClickListener {
-            Toast.makeText(this, "Admin Mode Clicked!", Toast.LENGTH_SHORT).show()
-        }
+        setContentView(textView)
     }
 }
