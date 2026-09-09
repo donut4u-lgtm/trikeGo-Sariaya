@@ -35,7 +35,8 @@ class MainActivity : AppCompatActivity() {
         val btnPassenger = Button(this).apply {
             text = "PASSENGER MODE"
             setOnClickListener {
-                // TODO: Launch Passenger Activity workflow
+                val intent = Intent(this@MainActivity, PassengerActivity::class.java)
+                startActivity(intent)
             }
         }
         rootLayout.addView(btnPassenger, LinearLayout.LayoutParams(
@@ -46,7 +47,7 @@ class MainActivity : AppCompatActivity() {
         val btnDriver = Button(this).apply {
             text = "DRIVER MODE"
             setOnClickListener {
-                // TODO: Launch Driver Activity workflow
+                // TODO: Driver Mode navigation
             }
         }
         rootLayout.addView(btnDriver, LinearLayout.LayoutParams(
@@ -57,7 +58,7 @@ class MainActivity : AppCompatActivity() {
         val btnAdmin = Button(this).apply {
             text = "ADMIN SIGN-IN"
             setOnClickListener {
-                // TODO: Launch Admin Login workflow
+                // TODO: Admin Sign-In navigation
             }
         }
         rootLayout.addView(btnAdmin, LinearLayout.LayoutParams(
