@@ -2,6 +2,7 @@
 package com.trikego.app
 
 import android.os.Bundle
+import android.view.Gravity
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -11,46 +12,43 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // Create a vertical layout container
         val layout = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
             setPadding(60, 60, 60, 60)
+            gravity = Gravity.CENTER_HORIZONTAL
         }
 
-        // Title text
         val title = TextView(this).apply {
             text = "TrikeGo Sariaya"
-            textSize = 28f
-            setPadding(0, 0, 0, 40)
+            textSize = 26f
+            setPadding(0, 40, 0, 80)
+            gravity = Gravity.CENTER
         }
         layout.addView(title)
 
-        // Passenger Button
         val btnPassenger = Button(this).apply {
             text = "Passenger Mode"
-            setOnClickListener {
-                // TODO: Launch Passenger Activity
-            }
+            setPadding(20, 30, 20, 30)
         }
-        layout.addView(btnPassenger)
+        val params = LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.MATCH_PARENT,
+            LinearLayout.LayoutParams.WRAP_CONTENT
+        ).apply {
+            setMargins(0, 20, 0, 20)
+        }
+        layout.addView(btnPassenger, params)
 
-        // Driver Button
         val btnDriver = Button(this).apply {
             text = "Driver Mode"
-            setOnClickListener {
-                // TODO: Launch Driver Activity
-            }
+            setPadding(20, 30, 20, 30)
         }
-        layout.addView(btnDriver)
+        layout.addView(btnDriver, params)
 
-        // Admin Sign-In Button
         val btnAdmin = Button(this).apply {
             text = "Admin Sign-In"
-            setOnClickListener {
-                // TODO: Launch Admin Login Activity
-            }
+            setPadding(20, 30, 20, 30)
         }
-        layout.addView(btnAdmin)
+        layout.addView(btnAdmin, params)
 
         setContentView(layout)
     }
