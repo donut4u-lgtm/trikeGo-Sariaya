@@ -1,77 +1,58 @@
 
-
 package com.trikego.app
 
-import android.graphics.Color
 import android.os.Bundle
-import android.view.Gravity
-import android.view.ViewGroup
+import android.widget.Button
 import android.widget.LinearLayout
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val rootLayout = LinearLayout(this).apply {
-            orientation = LinearLayout.VERTICAL
-            layoutParams = ViewGroup.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.MATCH_PARENT
-            )
-            setPadding(40, 100, 40, 40)
-            setBackgroundColor(Color.parseColor("#1B5E20"))
-            isClickable = true
-            isFocusable = true
+        val layout = LinearLayout(this)
+        layout.orientation = LinearLayout.VERTICAL
+        layout.setPadding(40, 100, 40, 40)
+
+        val passenger = Button(this)
+        passenger.text = "PASSENGER"
+
+        passenger.setOnClickListener {
+            Toast.makeText(
+                this,
+                "PASSENGER BUTTON WORKS",
+                Toast.LENGTH_LONG
+            ).show()
         }
 
-        val title = TextView(this).apply {
-            text = "TrikeGo Sariaya"
-            textSize = 28f
-            setTextColor(Color.WHITE)
-            gravity = Gravity.CENTER
-            setPadding(0, 0, 0, 80)
-        }
-        rootLayout.addView(title)
+        val driver = Button(this)
+        driver.text = "DRIVER"
 
-        val passengerBox = TextView(this).apply {
-            text = "PASSENGER MODE"
-            textSize = 18f
-            setTextColor(Color.WHITE)
-            setBackgroundColor(Color.parseColor("#2E7D32"))
-            gravity = Gravity.CENTER
-            setPadding(40, 60, 40, 60)
-            isClickable = true
-            isFocusable = true
-            setOnClickListener {
-                Toast.makeText(this@MainActivity, "Passenger Mode Clicked!", Toast.LENGTH_SHORT).show()
-            }
+        driver.setOnClickListener {
+            Toast.makeText(
+                this,
+                "DRIVER BUTTON WORKS",
+                Toast.LENGTH_LONG
+            ).show()
         }
-        rootLayout.addView(passengerBox, LinearLayout.LayoutParams(
-            LinearLayout.LayoutParams.MATCH_PARENT,
-            ViewGroup.LayoutParams.WRAP_CONTENT
-        ).apply { setMargins(0, 0, 0, 40) })
 
-        val driverBox = TextView(this).apply {
-            text = "DRIVER MODE"
-            textSize = 18f
-            setTextColor(Color.WHITE)
-            setBackgroundColor(Color.parseColor("#1565C0"))
-            gravity = Gravity.CENTER
-            setPadding(40, 60, 40, 60)
-            isClickable = true
-            isFocusable = true
-            setOnClickListener {
-                Toast.makeText(this@MainActivity, "Driver Mode Clicked!", Toast.LENGTH_SHORT).show()
-            }
+        val admin = Button(this)
+        admin.text = "ADMIN"
+
+        admin.setOnClickListener {
+            Toast.makeText(
+                this,
+                "ADMIN BUTTON WORKS",
+                Toast.LENGTH_LONG
+            ).show()
         }
-        rootLayout.addView(driverBox, LinearLayout.LayoutParams(
-            LinearLayout.LayoutParams.MATCH_PARENT,
-            ViewGroup.LayoutParams.WRAP_CONTENT
-        ))
 
-        setContentView(rootLayout)
+        layout.addView(passenger)
+        layout.addView(driver)
+        layout.addView(admin)
+
+        setContentView(layout)
     }
 }
