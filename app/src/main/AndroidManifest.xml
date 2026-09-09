@@ -17,12 +17,14 @@
         </activity>
 
         <activity
-            android:name=".PassengerActivity"
+            android:name="com.trikego.app.PassengerActivity"
             android:exported="false" />
 
     </application>
 
 </manifest>
+
+    
 
 
 
