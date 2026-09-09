@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
@@ -35,6 +36,7 @@ class MainActivity : AppCompatActivity() {
         val btnPassenger = Button(this).apply {
             text = "PASSENGER MODE"
             setOnClickListener {
+                Toast.makeText(this@MainActivity, "Opening Passenger Mode...", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this@MainActivity, PassengerActivity::class.java)
                 startActivity(intent)
             }
@@ -47,7 +49,7 @@ class MainActivity : AppCompatActivity() {
         val btnDriver = Button(this).apply {
             text = "DRIVER MODE"
             setOnClickListener {
-                // TODO: Driver Mode navigation
+                Toast.makeText(this@MainActivity, "Driver Mode coming soon", Toast.LENGTH_SHORT).show()
             }
         }
         rootLayout.addView(btnDriver, LinearLayout.LayoutParams(
@@ -58,7 +60,7 @@ class MainActivity : AppCompatActivity() {
         val btnAdmin = Button(this).apply {
             text = "ADMIN SIGN-IN"
             setOnClickListener {
-                // TODO: Admin Sign-In navigation
+                Toast.makeText(this@MainActivity, "Admin Sign-In coming soon", Toast.LENGTH_SHORT).show()
             }
         }
         rootLayout.addView(btnAdmin, LinearLayout.LayoutParams(
