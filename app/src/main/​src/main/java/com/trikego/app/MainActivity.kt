@@ -13,10 +13,10 @@ import androidx.appcompat.app.AppCompatActivity
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        showMainScreen()
+        showHomeMenu()
     }
 
-    private fun showMainScreen() {
+    private fun showHomeMenu() {
         val rootLayout = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
             layoutParams = ViewGroup.LayoutParams(
@@ -38,54 +38,7 @@ class MainActivity : AppCompatActivity() {
         val btnPassenger = Button(this).apply {
             text = "PASSENGER MODE"
             setOnClickListener {
-                // Direct UI replacement test
-                val passengerLayout = LinearLayout(this@MainActivity).apply {
-                    orientation = LinearLayout.VERTICAL
-                    layoutParams = ViewGroup.LayoutParams(
-                        ViewGroup.LayoutParams.MATCH_PARENT,
-                        ViewGroup.LayoutParams.MATCH_PARENT
-                    )
-                    setPadding(50, 80, 50, 50)
-                    setBackgroundColor(Color.WHITE)
-                }
-
-                val pTitle = TextView(this@MainActivity).apply {
-                    text = "Passenger Booking"
-                    textSize = 24f
-                    setTextColor(Color.BLACK)
-                    setPadding(0, 0, 0, 40)
-                }
-                passengerLayout.addView(pTitle)
-
-                val inputPickup = EditText(this@MainActivity).apply {
-                    hint = "Enter Pickup Location"
-                    setTextColor(Color.BLACK)
-                    setHintTextColor(Color.GRAY)
-                }
-                passengerLayout.addView(inputPickup, LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.MATCH_PARENT,
-                    LinearLayout.LayoutParams.WRAP_CONTENT
-                ).apply { setMargins(0, 0, 0, 20) })
-
-                val inputDestination = EditText(this@MainActivity).apply {
-                    hint = "Enter Destination"
-                    setTextColor(Color.BLACK)
-                    setHintTextColor(Color.GRAY)
-                }
-                passengerLayout.addView(inputDestination, LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.MATCH_PARENT,
-                    LinearLayout.LayoutParams.WRAP_CONTENT
-                ).apply { setMargins(0, 0, 0, 40) })
-
-                val btnBook = Button(this@MainActivity).apply {
-                    text = "FIND TRICYCLE"
-                }
-                passengerLayout.addView(btnBook, LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.MATCH_PARENT,
-                    LinearLayout.LayoutParams.WRAP_CONTENT
-                ))
-
-                setContentView(passengerLayout)
+                showPassengerScreen()
             }
         }
         rootLayout.addView(btnPassenger, LinearLayout.LayoutParams(
@@ -93,6 +46,81 @@ class MainActivity : AppCompatActivity() {
             LinearLayout.LayoutParams.WRAP_CONTENT
         ).apply { setMargins(0, 20, 0, 20) })
 
+        val btnDriver = Button(this).apply {
+            text = "DRIVER MODE"
+            setOnClickListener {
+                // Placeholder for driver screen
+            }
+        }
+        rootLayout.addView(btnDriver, LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.MATCH_PARENT,
+            LinearLayout.LayoutParams.WRAP_CONTENT
+        ).apply { setMargins(0, 20, 0, 20) })
+
         setContentView(rootLayout)
+    }
+
+    private fun showPassengerScreen() {
+        val passengerLayout = LinearLayout(this).apply {
+            orientation = LinearLayout.VERTICAL
+            layoutParams = ViewGroup.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.MATCH_PARENT
+            )
+            setPadding(50, 80, 50, 50)
+            setBackgroundColor(Color.WHITE)
+        }
+
+        val pTitle = TextView(this).apply {
+            text = "Passenger Booking"
+            textSize = 24f
+            setTextColor(Color.BLACK)
+            setPadding(0, 0, 0, 40)
+        }
+        passengerLayout.addView(pTitle)
+
+        val inputPickup = EditText(this).apply {
+            hint = "Enter Pickup Location"
+            setTextColor(Color.BLACK)
+            setHintTextColor(Color.GRAY)
+        }
+        passengerLayout.addView(inputPickup, LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.MATCH_PARENT,
+            LinearLayout.LayoutParams.WRAP_CONTENT
+        ).apply { setMargins(0, 0, 0, 20) })
+
+        val inputDestination = EditText(this).apply {
+            hint = "Enter Destination"
+            setTextColor(Color.BLACK)
+            setHintTextColor(Color.GRAY)
+        }
+        passengerLayout.addView(inputDestination, LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.MATCH_PARENT,
+            LinearLayout.LayoutParams.WRAP_CONTENT
+        ).apply { setMargins(0, 0, 0, 40) })
+
+        val btnBook = Button(this).apply {
+            text = "FIND TRICYCLE"
+            setOnClickListener {
+                pTitle.text = "Searching for Tricycle..."
+            }
+        }
+        passengerLayout.addView(btnBook, LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.MATCH_PARENT,
+            LinearLayout.LayoutParams.WRAP_CONTENT
+        ))
+
+        val btnBack = Button(this).apply {
+            text = "BACK TO HOME"
+            setOnClickListener {
+                showHomeMenu()
+            }
+        }
+        passengerLayout.addView(btnBack, LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.MATCH_PARENT,
+            LinearLayout.LayoutParams.WRAP_CONTENT
+        ).apply { setMargins(0, 40, 0, 0) })
+
+        setContentView(passengerLayout)
     }
 }
