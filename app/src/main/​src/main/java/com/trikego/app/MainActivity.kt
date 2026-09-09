@@ -1,3 +1,4 @@
+
 package com.trikego.app
 
 import android.app.Activity
@@ -10,11 +11,12 @@ class MainActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         
-        val tv = TextView(this)
-        tv.text = "TrikeGo Sariaya - Ready"
-        tv.textSize = 24f
-        tv.setTextColor(Color.BLACK)
-        tv.gravity = Gravity.CENTER
+        val tv = TextView(this).apply {
+            text = "TrikeGo Sariaya - Ready"
+            textSize = 24f
+            setTextColor(Color.BLACK)
+            gravity = Gravity.CENTER
+        }
         
         setContentView(tv)
     }
