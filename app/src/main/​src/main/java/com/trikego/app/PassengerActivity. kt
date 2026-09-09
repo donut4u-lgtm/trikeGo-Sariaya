@@ -1,0 +1,64 @@
+package com.trikego.app
+
+import android.graphics.Color
+import android.os.Bundle
+import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
+import android.widget.LinearLayout
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+
+class PassengerActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        val layout = LinearLayout(this).apply {
+            orientation = LinearLayout.VERTICAL
+            layoutParams = ViewGroup.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.MATCH_PARENT
+            )
+            setPadding(50, 80, 50, 50)
+            setBackgroundColor(Color.WHITE)
+        }
+
+        val title = TextView(this).apply {
+            text = "Passenger Booking"
+            textSize = 24f
+            setTextColor(Color.BLACK)
+            setPadding(0, 0, 0, 40)
+        }
+        layout.addView(title)
+
+        val inputPickup = EditText(this).apply {
+            hint = "Enter Pickup Location"
+            setTextColor(Color.BLACK)
+            setHintTextColor(Color.GRAY)
+        }
+        layout.addView(inputPickup, LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.MATCH_PARENT,
+            LinearLayout.LayoutParams.WRAP_CONTENT
+        ).apply { setMargins(0, 0, 0, 20) })
+
+        val inputDestination = EditText(this).apply {
+            hint = "Enter Destination"
+            setTextColor(Color.BLACK)
+            setHintTextColor(Color.GRAY)
+        }
+        layout.addView(inputDestination, LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.MATCH_PARENT,
+            LinearLayout.LayoutParams.WRAP_CONTENT
+        ).apply { setMargins(0, 0, 0, 40) })
+
+        val btnBook = Button(this).apply {
+            text = "FIND TRICYCLE"
+        }
+        layout.addView(btnBook, LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.MATCH_PARENT,
+            LinearLayout.LayoutParams.WRAP_CONTENT
+        ))
+
+        setContentView(layout)
+    }
+}
