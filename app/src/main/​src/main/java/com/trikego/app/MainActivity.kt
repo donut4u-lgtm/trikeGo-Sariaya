@@ -10,26 +10,40 @@ import android.widget.TextView
 class MainActivity : Activity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        try {
-            super.onCreate(savedInstanceState)
 
-            val tv = TextView(this)
-            tv.text = "TrikeGo Sariaya\n\nApp started successfully!"
-            tv.textSize = 24f
-            tv.setTextColor(Color.BLACK)
-            tv.gravity = Gravity.CENTER
+        Thread.setDefaultUncaughtExceptionHandler { _, throwable ->
 
-            setContentView(tv)
+            val message = buildString {
+                append("TRIKEGO CRASH\n\n")
+                append(throwable.javaClass.name)
+                append("\n\n")
+                append(throwable.message ?: "No message")
+                append("\n\n")
+                append(
+                    throwable.stackTraceToString()
+                        .take(4000)
+                )
+            }
 
-        } catch (e: Exception) {
-            val error = TextView(this)
-            error.text = "TRIKEGO ERROR\n\n${e.javaClass.name}\n\n${e.message}"
-            error.textSize = 18f
-            error.setTextColor(Color.RED)
-            error.gravity = Gravity.CENTER
-            error.setPadding(30, 30, 30, 30)
-
-            setContentView(error)
+            runOnUiThread {
+                val tv = TextView(this)
+                tv.text = message
+                tv.textSize = 14f
+                tv.setTextColor(Color.RED)
+                tv.setGravity(Gravity.START)
+                tv.setPadding(20, 40, 20, 40)
+                setContentView(tv)
+            }
         }
+
+        super.onCreate(savedInstanceState)
+
+        val tv = TextView(this)
+        tv.text = "TrikeGo Sariaya\n\nStarting..."
+        tv.textSize = 24f
+        tv.setTextColor(Color.BLACK)
+        tv.gravity = Gravity.CENTER
+
+        setContentView(tv)
     }
 }
