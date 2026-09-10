@@ -1,49 +1,8 @@
 
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="32dp"
     android:gravity="center"
-    android:background="#1B5E20">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TrikeGo Sariaya"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        android:textColor="#FFFFFF"
-        android:layout_marginBottom="50dp"/>
-
-    <Button
-        android:id="@+id/btnPassenger"
-        android:layout_width="match_parent"
-        android:layout_height="65dp"
-        android:text="PASSENGER MODE"
-        android:textSize="16sp"
-        android:backgroundTint="#2E7D32"
-        android:textColor="#FFFFFF"
-        android:layout_marginBottom="20dp"/>
-
-    <Button
-        android:id="@+id/btnDriver"
-        android:layout_width="match_parent"
-        android:layout_height="65dp"
-        android:text="DRIVER MODE"
-        android:textSize="16sp"
-        android:backgroundTint="#1565C0"
-        android:textColor="#FFFFFF"
-        android:layout_marginBottom="20dp"/>
-
-    <Button
-        android:id="@+id/btnAdmin"
-        android:layout_width="match_parent"
-        android:layout_height="65dp"
-        android:text="ADMIN MODE"
-        android:textSize="16sp"
-        android:backgroundTint="#D32F2F"
-        android:textColor="#FFFFFF"/>
-
-</LinearLayout>
+    android:text="TrikeGo Sariaya - Ready"
+    android:textSize="24sp" />
