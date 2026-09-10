@@ -1,15 +1,22 @@
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
     <application
-        android:theme="@android:style/Theme.Material.Light"
-        android:label="TrikeGo Sariaya">
+        android:allowBackup="false"
+        android:label="TrikeGo Sariaya"
+        android:theme="@android:style/Theme.Material.Light">
+
         <activity
-            android:name=".MainActivity"
+            android:name="com.trikego.app.MainActivity"
             android:exported="true">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
+
     </application>
+
 </manifest>
